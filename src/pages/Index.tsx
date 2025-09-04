@@ -3,6 +3,7 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import PerformanceChart from "@/components/dashboard/PerformanceChart";
 import RegionalInsights from "@/components/dashboard/RegionalInsights";
 import SystemMetrics from "@/components/dashboard/SystemMetrics";
+import ChartDashboard from "@/components/dashboard/ChartDashboard";
 import Sidebar from "@/components/dashboard/Sidebar";
 import StatsCard from "@/components/dashboard/StatsCard";
 import { 
@@ -66,6 +67,7 @@ const Index = () => {
             </div>
 
             <PerformanceChart />
+            <ChartDashboard />
             <RegionalInsights />
           </div>
         );

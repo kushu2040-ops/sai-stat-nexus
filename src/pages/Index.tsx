@@ -4,6 +4,7 @@ import PerformanceChart from "@/components/dashboard/PerformanceChart";
 import RegionalInsights from "@/components/dashboard/RegionalInsights";
 import SystemMetrics from "@/components/dashboard/SystemMetrics";
 import ChartDashboard from "@/components/dashboard/ChartDashboard";
+import AthleteList from "@/components/dashboard/AthleteList";
 import Sidebar from "@/components/dashboard/Sidebar";
 import StatsCard from "@/components/dashboard/StatsCard";
 import { 
@@ -68,7 +69,12 @@ const Index = () => {
 
             <PerformanceChart />
             <ChartDashboard />
-            <RegionalInsights />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2">
+                <RegionalInsights />
+              </div>
+              <AthleteList />
+            </div>
           </div>
         );
       

@@ -13,10 +13,10 @@ const topStates = [
 ];
 
 const talentPools = [
-  { region: "North India", sports: ["Hockey", "Wrestling", "Boxing"], athletes: 4520 },
-  { region: "South India", sports: ["Cricket", "Badminton", "Athletics"], athletes: 5890 },
-  { region: "West India", sports: ["Cricket", "Football", "Swimming"], athletes: 3240 },
-  { region: "East India", sports: ["Football", "Athletics", "Boxing"], athletes: 2197 },
+  { region: "North India", sports: ["Hockey", "Wrestling", "Boxing", "Judo", "Karate"], athletes: 4520 },
+  { region: "South India", sports: ["Cricket", "Athletics", "Swimming", "Diving", "Volleyball"], athletes: 5890 },
+  { region: "West India", sports: ["Football/Soccer", "Basketball", "Rugby", "Handball"], athletes: 3240 },
+  { region: "East India", sports: ["Boxing", "Kickboxing", "Baseball", "Softball"], athletes: 2197 },
 ];
 
 const statePerformanceData = [

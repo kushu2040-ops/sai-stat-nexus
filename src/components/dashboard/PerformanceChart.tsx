@@ -11,21 +11,36 @@ const performanceData = [
 ];
 
 const sportData = [
-  { sport: "Cricket", athletes: 3240, potential: 890 },
-  { sport: "Football", athletes: 2150, potential: 645 },
-  { sport: "Athletics", athletes: 2890, potential: 1120 },
-  { sport: "Badminton", athletes: 1670, potential: 420 },
+  { sport: "Football/Soccer", athletes: 3240, potential: 890 },
+  { sport: "Cricket", athletes: 2890, potential: 820 },
+  { sport: "Athletics", athletes: 2650, potential: 750 },
+  { sport: "Basketball", athletes: 2150, potential: 645 },
+  { sport: "Swimming", athletes: 1890, potential: 520 },
   { sport: "Hockey", athletes: 1540, potential: 380 },
-  { sport: "Swimming", athletes: 1390, potential: 290 },
+  { sport: "Volleyball", athletes: 1420, potential: 340 },
+  { sport: "Boxing", athletes: 1320, potential: 290 },
+  { sport: "Wrestling", athletes: 1180, potential: 260 },
+  { sport: "Judo", athletes: 980, potential: 220 },
+  { sport: "Baseball", athletes: 850, potential: 190 },
+  { sport: "Rugby", athletes: 720, potential: 160 },
+  { sport: "Karate", athletes: 680, potential: 150 },
+  { sport: "Handball", athletes: 620, potential: 140 },
+  { sport: "Kickboxing", athletes: 580, potential: 130 },
+  { sport: "Diving", athletes: 450, potential: 100 },
+  { sport: "Softball", athletes: 420, potential: 95 },
 ];
 
 const pieChartData = [
-  { name: "Cricket", value: 3240, color: "hsl(var(--primary))" },
-  { name: "Athletics", value: 2890, color: "hsl(var(--success))" },
-  { name: "Football", value: 2150, color: "hsl(var(--warning))" },
-  { name: "Badminton", value: 1670, color: "hsl(var(--secondary))" },
-  { name: "Hockey", value: 1540, color: "hsl(var(--accent))" },
-  { name: "Swimming", value: 1390, color: "hsl(var(--muted))" },
+  { name: "Football/Soccer", value: 3240, color: "hsl(var(--primary))" },
+  { name: "Cricket", value: 2890, color: "hsl(var(--success))" },
+  { name: "Athletics", value: 2650, color: "hsl(var(--warning))" },
+  { name: "Basketball", value: 2150, color: "hsl(var(--secondary))" },
+  { name: "Swimming", value: 1890, color: "hsl(var(--accent))" },
+  { name: "Hockey", value: 1540, color: "hsl(var(--chart-1))" },
+  { name: "Volleyball", value: 1420, color: "hsl(var(--chart-2))" },
+  { name: "Boxing", value: 1320, color: "hsl(var(--chart-3))" },
+  { name: "Wrestling", value: 1180, color: "hsl(var(--chart-4))" },
+  { name: "Others", value: 4270, color: "hsl(var(--muted))" },
 ];
 
 const areaChartData = [

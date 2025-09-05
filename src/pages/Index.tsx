@@ -5,6 +5,9 @@ import RegionalInsights from "@/components/dashboard/RegionalInsights";
 import SystemMetrics from "@/components/dashboard/SystemMetrics";
 import ChartDashboard from "@/components/dashboard/ChartDashboard";
 import AthleteList from "@/components/dashboard/AthleteList";
+import AthletesDirectory from "@/components/dashboard/AthletesDirectory";
+import TalentIdentification from "@/components/dashboard/TalentIdentification";
+import EngagementDashboard from "@/components/dashboard/EngagementDashboard";
 import Sidebar from "@/components/dashboard/Sidebar";
 import StatsCard from "@/components/dashboard/StatsCard";
 import { 
@@ -77,6 +80,15 @@ const Index = () => {
             </div>
           </div>
         );
+      
+      case "athletes":
+        return <AthletesDirectory />;
+      
+      case "talent":
+        return <TalentIdentification />;
+      
+      case "engagement":
+        return <EngagementDashboard />;
       
       case "performance":
         return (

@@ -86,11 +86,11 @@ const RegionalInsights = () => {
                 name="Athletes"
               />
               <Bar 
-                yAxisId="right"
-                dataKey="medals" 
-                fill="hsl(var(--warning))" 
+                yAxisId="left"
+                dataKey="performance" 
+                fill="hsl(var(--success))" 
                 radius={[4, 4, 0, 0]}
-                name="Medals Won"
+                name="Performance Score"
               />
             </BarChart>
           </ResponsiveContainer>

@@ -7,6 +7,7 @@ import ChartDashboard from "@/components/dashboard/ChartDashboard";
 import AthleteList from "@/components/dashboard/AthleteList";
 import AthletesDirectory from "@/components/dashboard/AthletesDirectory";
 import TalentIdentification from "@/components/dashboard/TalentIdentification";
+import EngagementDashboard from "@/components/dashboard/EngagementDashboard";
 import PredictiveAnalytics from "@/components/dashboard/PredictiveAnalytics";
 import Sidebar from "@/components/dashboard/Sidebar";
 import StatsCard from "@/components/dashboard/StatsCard";
@@ -86,6 +87,9 @@ const Index = () => {
       
       case "talent":
         return <TalentIdentification />;
+      
+      case "engagement":
+        return <EngagementDashboard />;
       
       case "analytics":
         return <PredictiveAnalytics />;

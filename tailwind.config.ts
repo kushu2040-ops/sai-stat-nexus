@@ -69,6 +69,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				chart: {
+					blue: 'hsl(var(--chart-blue))',
+					orange: 'hsl(var(--chart-orange))',
+					teal: 'hsl(var(--chart-teal))',
+					red: 'hsl(var(--chart-red))'
 				}
 			},
 			backgroundImage: {

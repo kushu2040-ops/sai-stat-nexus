@@ -8,74 +8,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* MarketPulse Light Theme - Clean and minimalist */
-    --background: 0 0% 98%; /* Light gray background */
-    --foreground: 220 13% 13%; /* Dark text */
+    /* Clean MarketPulse Theme - Matching reference image */
+    --background: 0 0% 100%; /* Pure white background */
+    --foreground: 0 0% 13%; /* Dark text */
 
     --card: 0 0% 100%; /* Pure white cards */
-    --card-foreground: 220 13% 13%; /* Dark text on cards */
+    --card-foreground: 0 0% 13%; /* Dark text on cards */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
+    --popover-foreground: 0 0% 13%;
 
-    /* MarketPulse Accent Colors - Vibrant blue primary */
-    --primary: 217 91% 60%; /* Vibrant blue */
-    --primary-foreground: 0 0% 98%;
+    /* Primary colors matching the reference */
+    --primary: 210 100% 50%; /* Clean blue */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%; /* Light gray */
-    --secondary-foreground: 220 13% 13%;
+    --secondary-foreground: 0 0% 13%;
 
     --muted: 0 0% 96%; /* Light gray */
     --muted-foreground: 0 0% 45%; /* Medium gray text */
 
-    --accent: 217 91% 60%; /* Vibrant blue */
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 100% 50%; /* Clean blue */
+    --accent-foreground: 0 0% 100%;
 
-    /* Chart colors matching MarketPulse image */
-    --success: 168 76% 42%; /* Teal */
-    --success-foreground: 0 0% 98%;
+    /* Financial theme colors from reference */
+    --success: 142 76% 36%; /* Professional green for gains */
+    --success-foreground: 0 0% 100%;
 
-    --warning: 35 91% 62%; /* Muted orange */
-    --warning-foreground: 0 0% 98%;
+    --warning: 38 92% 50%; /* Orange for neutral/warning */
+    --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%; /* Red */
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%; /* Red for losses */
+    --destructive-foreground: 0 0% 100%;
 
-    /* Chart accent colors from the image */
-    --chart-blue: 217 91% 60%; /* Primary blue */
-    --chart-orange: 35 91% 62%; /* Muted orange */
-    --chart-teal: 168 76% 42%; /* Teal */
-    --chart-red: 0 84% 60%; /* Red */
+    /* Chart colors matching reference image */
+    --chart-blue: 210 100% 50%; /* Primary blue */
+    --chart-green: 142 76% 36%; /* Success green */
+    --chart-orange: 38 92% 50%; /* Warning orange */
+    --chart-red: 0 84% 60%; /* Destructive red */
+    --chart-teal: 180 100% 35%; /* Teal accent */
 
     --border: 0 0% 90%; /* Light border */
-    --input: 0 0% 96%; /* Light input background */
-    --ring: 217 91% 60%; /* Blue focus ring */
+    --input: 0 0% 98%; /* Very light input background */
+    --ring: 210 100% 50%; /* Blue focus ring */
 
-    --radius: 0.75rem; /* Softer rounded corners */
+    --radius: 0.5rem; /* Clean rounded corners */
 
-    /* Design tokens for light theme */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(35 91% 62%), hsl(35 91% 72%));
+    /* Clean gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%), hsl(210 100% 60%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 99%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(168 76% 42%) 50%, hsl(217 91% 60%) 100%);
     
-    /* Subtle shadows for depth */
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px 0 hsl(0 0% 0% / 0.06);
-    --shadow-lg: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
-    --shadow-xl: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
+    /* Minimal shadows for clean look */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 4px 6px -1px hsl(0 0% 0% / 0.08);
+    --shadow-xl: 0 10px 15px -3px hsl(0 0% 0% / 0.08);
 
-    --transition-all: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-all: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Dark sidebar styling matching the image */
-    --sidebar-background: 220 13% 18%; /* Dark gray sidebar */
+    /* Dark sidebar matching reference */
+    --sidebar-background: 0 0% 15%; /* Dark charcoal sidebar */
     --sidebar-foreground: 0 0% 95%; /* Light text */
-    --sidebar-primary: 217 91% 60%; /* Blue active state */
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 13% 25%; /* Slightly lighter for hover */
+    --sidebar-primary: 210 100% 50%; /* Blue active state */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 20%; /* Slightly lighter for hover */
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 13% 25%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 210 100% 50%;
   }
 
   /* Dark theme variant */

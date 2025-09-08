@@ -6,6 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface SettingsPanelProps {
   isOpen: boolean;
@@ -13,7 +14,7 @@ interface SettingsPanelProps {
 }
 
 const SettingsPanel = ({ isOpen, onClose }: SettingsPanelProps) => {
-  const [selectedTheme, setSelectedTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
   const [selectedRegion, setSelectedRegion] = useState("all");
   const [showUnidentifiedTalent, setShowUnidentifiedTalent] = useState(true);
   const [emailAlerts, setEmailAlerts] = useState(true);
@@ -81,7 +82,7 @@ const SettingsPanel = ({ isOpen, onClose }: SettingsPanelProps) => {
               {/* Theme Selector */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">Theme</label>
-                <Select value={selectedTheme} onValueChange={setSelectedTheme}>
+                <Select value={theme} onValueChange={setTheme}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select theme" />
                   </SelectTrigger>

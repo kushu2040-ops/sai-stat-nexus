@@ -78,14 +78,43 @@ All colors MUST be HSL.
     --sidebar-ring: 217 91% 60%;
   }
 
-  /* Dark theme variant - if needed */
+  /* Dark theme variant */
   .dark {
-    --background: 220 13% 9%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 18%;
-    --card-foreground: 0 0% 95%;
-    --sidebar-background: 220 13% 7%;
+    --background: 220 13% 9%; /* Dark background */
+    --foreground: 0 0% 95%; /* Light text */
+    
+    --card: 220 13% 18%; /* Dark cards */
+    --card-foreground: 0 0% 95%; /* Light text on cards */
+    
+    --popover: 220 13% 18%;
+    --popover-foreground: 0 0% 95%;
+    
+    --secondary: 220 13% 25%; /* Darker gray */
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 220 13% 25%; /* Darker gray */
+    --muted-foreground: 0 0% 65%; /* Lighter gray text */
+    
+    --border: 220 13% 25%; /* Dark border */
+    --input: 220 13% 25%; /* Dark input background */
+    
+    --sidebar-background: 220 13% 7%; /* Even darker sidebar */
     --sidebar-foreground: 0 0% 95%;
+  }
+  
+  /* High contrast theme */
+  .high-contrast {
+    --background: 0 0% 0%; /* Pure black */
+    --foreground: 0 0% 100%; /* Pure white */
+    
+    --card: 0 0% 5%; /* Very dark gray */
+    --card-foreground: 0 0% 100%; /* Pure white text */
+    
+    --border: 0 0% 20%; /* Medium gray border */
+    --input: 0 0% 10%; /* Very dark input */
+    
+    --primary: 60 100% 50%; /* High contrast yellow */
+    --primary-foreground: 0 0% 0%; /* Black text on yellow */
   }
 }
 

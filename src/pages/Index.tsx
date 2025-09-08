@@ -10,6 +10,7 @@ import TalentIdentification from "@/components/dashboard/TalentIdentification";
 import EngagementDashboard from "@/components/dashboard/EngagementDashboard";
 import PredictiveAnalytics from "@/components/dashboard/PredictiveAnalytics";
 import Sidebar from "@/components/dashboard/Sidebar";
+import SettingsPanel from "@/components/dashboard/SettingsPanel";
 import StatsCard from "@/components/dashboard/StatsCard";
 import { 
   Users, 
@@ -24,6 +25,7 @@ import {
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("overview");
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -171,13 +173,22 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background flex">
-      <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+      <Sidebar 
+        activeSection={activeSection} 
+        onSectionChange={setActiveSection}
+        onSettingsClick={() => setIsSettingsOpen(true)}
+      />
       
       <main className="flex-1 overflow-auto">
         <div className="p-6">
           {renderContent()}
         </div>
       </main>
+
+      <SettingsPanel 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)} 
+      />
     </div>
   );
 };

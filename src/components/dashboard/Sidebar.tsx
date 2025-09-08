@@ -16,6 +16,7 @@ import {
 interface SidebarProps {
   activeSection: string;
   onSectionChange: (section: string) => void;
+  onSettingsClick: () => void;
 }
 
 const navigationItems = [
@@ -29,7 +30,7 @@ const navigationItems = [
   { id: "system", label: "System", icon: TrendingUp },
 ];
 
-const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
+const Sidebar = ({ activeSection, onSectionChange, onSettingsClick }: SidebarProps) => {
   return (
     <div className="w-64 bg-gradient-card border-r border-border shadow-lg">
       <div className="p-6">
@@ -76,6 +77,7 @@ const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
           <Button
             variant="ghost"
             className="w-full justify-start gap-3 h-10 text-muted-foreground hover:text-foreground"
+            onClick={onSettingsClick}
           >
             <Settings className="h-4 w-4" />
             Settings

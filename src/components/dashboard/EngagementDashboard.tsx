@@ -117,7 +117,7 @@ const EngagementDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Test Completions</p>
-                <p className="text-2xl font-bold text-secondary">{totalTestCompletions.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-foreground">{totalTestCompletions.toLocaleString()}</p>
               </div>
               <TrendingUp className="h-8 w-8 text-secondary" />
             </div>

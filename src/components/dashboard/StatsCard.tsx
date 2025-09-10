@@ -24,9 +24,9 @@ const StatsCard = ({
 }: StatsCardProps) => {
   const variantStyles = {
     default: "bg-gradient-card border-border",
-    success: "bg-gradient-secondary border-success/20",
-    warning: "bg-gradient-to-br from-warning/10 to-warning/5 border-warning/20",
-    primary: "bg-gradient-primary border-primary/20"
+    success: "bg-gradient-card border-success/20",
+    warning: "bg-gradient-card border-warning/20",
+    primary: "bg-gradient-card border-primary/20"
   };
 
   return (
@@ -47,7 +47,13 @@ const StatsCard = ({
         )} />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold text-foreground">{value}</div>
+        <div className={cn(
+          "text-2xl font-bold",
+          variant === "primary" && "text-primary",
+          variant === "success" && "text-success", 
+          variant === "warning" && "text-warning",
+          variant === "default" && "text-foreground"
+        )}>{value}</div>
         {description && (
           <p className="text-xs text-muted-foreground mt-1">
             {description}
@@ -55,10 +61,10 @@ const StatsCard = ({
         )}
         {trend && (
           <div className={cn(
-            "text-xs mt-2 flex items-center gap-1",
+            "text-sm mt-2 flex items-center gap-1 font-medium",
             trend.isPositive ? "text-success" : "text-destructive"
           )}>
-            <span>{trend.isPositive ? "↗" : "↘"}</span>
+            <span className="text-base">{trend.isPositive ? "↗" : "↘"}</span>
             <span>{Math.abs(trend.value)}% from last month</span>
           </div>
         )}

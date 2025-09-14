@@ -32,7 +32,7 @@ const navigationItems = [
 
 const Sidebar = ({ activeSection, onSectionChange, onSettingsClick }: SidebarProps) => {
   return (
-    <div className="fixed top-0 right-0 h-full w-64 bg-gradient-card border-l border-border shadow-lg overflow-y-auto">
+    <div className="w-64 bg-gradient-card border-r border-border shadow-lg">
       <div className="p-6">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-gradient-primary rounded-lg">

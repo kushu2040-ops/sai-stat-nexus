@@ -179,7 +179,7 @@ const Index = () => {
         onSettingsClick={() => setIsSettingsOpen(true)}
       />
       
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto ml-64">
         <div className="p-6">
           {renderContent()}
         </div>

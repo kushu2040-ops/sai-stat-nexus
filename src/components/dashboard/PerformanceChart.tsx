@@ -34,13 +34,13 @@ const pieChartData = [
   { name: "Football/Soccer", value: 3240, color: "hsl(var(--primary))" },
   { name: "Cricket", value: 2890, color: "hsl(var(--success))" },
   { name: "Athletics", value: 2650, color: "hsl(var(--warning))" },
-  { name: "Basketball", value: 2150, color: "hsl(var(--secondary))" },
+  { name: "Basketball", value: 2150, color: "hsl(220, 85%, 57%)" },
   { name: "Swimming", value: 1890, color: "hsl(var(--accent))" },
   { name: "Hockey", value: 1540, color: "hsl(var(--chart-1))" },
   { name: "Volleyball", value: 1420, color: "hsl(var(--chart-2))" },
   { name: "Boxing", value: 1320, color: "hsl(var(--chart-3))" },
   { name: "Wrestling", value: 1180, color: "hsl(var(--chart-4))" },
-  { name: "Others", value: 4270, color: "hsl(var(--muted))" },
+  { name: "Others", value: 4270, color: "hsl(30, 70%, 55%)" },
 ];
 
 const areaChartData = [

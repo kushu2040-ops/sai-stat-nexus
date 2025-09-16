@@ -122,7 +122,7 @@ const PredictiveAnalytics = () => {
     { factor: "Mental Strength", value: selectedAthlete.mentalScore, weight: 20, color: "hsl(var(--warning))" },
     { factor: "Performance History", value: selectedAthlete.performanceScore, weight: 15, color: "hsl(var(--secondary))" },
     { factor: "Improvement Trend", value: selectedAthlete.improvementTrend, weight: 10, color: "hsl(var(--accent))" },
-    { factor: "Consistency", value: selectedAthlete.consistency, weight: 10, color: "hsl(var(--muted))" }
+    { factor: "Consistency", value: selectedAthlete.consistency, weight: 10, color: "hsl(var(--destructive))" }
   ];
 
   const factorChartData = contributingFactors.map(factor => ({
@@ -282,11 +282,19 @@ const PredictiveAnalytics = () => {
                       name === "value" ? "Score" : name
                     ]}
                   />
-                  <Bar 
-                    dataKey="value" 
-                    fill="hsl(var(--primary))"
-                    radius={[0, 4, 4, 0]}
-                  />
+                   <Bar 
+                     dataKey="value" 
+                     fill="hsl(var(--primary))"
+                     radius={[0, 4, 4, 0]}
+                   />
+                   {factorChartData.map((entry, index) => (
+                     <Bar 
+                       key={`bar-${index}`}
+                       dataKey="value" 
+                       fill={contributingFactors[index]?.color || "hsl(var(--primary))"}
+                       radius={[0, 4, 4, 0]}
+                     />
+                   ))}
                 </BarChart>
               </ResponsiveContainer>
             ) : (

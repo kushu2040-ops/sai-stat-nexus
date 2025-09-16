@@ -222,18 +222,19 @@ const PredictiveAnalytics = () => {
               </Badge>
             </div>
             
-            <div className="space-y-3">
+            {/* Enhanced Athlete Info Card */}
+            <div className="p-4 bg-background/80 rounded-lg border border-border/50 space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">Sport:</span>
-                <span className="text-sm font-medium text-foreground">{selectedAthlete.sport}</span>
+                <span className="text-base font-medium text-muted-foreground">Sport:</span>
+                <span className="text-base font-bold text-foreground">{selectedAthlete.sport}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">Age:</span>
-                <span className="text-sm font-medium text-foreground">{selectedAthlete.age} years</span>
+                <span className="text-base font-medium text-muted-foreground">Age:</span>
+                <span className="text-base font-bold text-foreground">{selectedAthlete.age} years</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">State:</span>
-                <span className="text-sm font-medium text-foreground">{selectedAthlete.state}</span>
+                <span className="text-base font-medium text-muted-foreground">State:</span>
+                <span className="text-base font-bold text-foreground">{selectedAthlete.state}</span>
               </div>
             </div>
           </CardContent>
@@ -251,41 +252,54 @@ const PredictiveAnalytics = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={factorChartData} layout="horizontal">
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis 
-                  type="number" 
-                  domain={[0, 100]}
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
-                />
-                <YAxis 
-                  type="category" 
-                  dataKey="name"
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
-                  width={120}
-                />
-                <Tooltip 
-                  contentStyle={{
-                    backgroundColor: "hsl(var(--card))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "var(--radius)",
-                    color: "hsl(var(--foreground))"
-                  }}
-                  formatter={(value: any, name: string) => [
-                    `${value}%`,
-                    name === "value" ? "Score" : name
-                  ]}
-                />
-                <Bar 
-                  dataKey="value" 
-                  fill="hsl(var(--primary))"
-                  radius={[0, 4, 4, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+            {factorChartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={factorChartData} layout="horizontal">
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis 
+                    type="number" 
+                    domain={[0, 100]}
+                    stroke="hsl(var(--muted-foreground))"
+                    fontSize={12}
+                    label={{ value: 'Performance Score (%)', position: 'insideBottom', offset: -5 }}
+                  />
+                  <YAxis 
+                    type="category" 
+                    dataKey="name"
+                    stroke="hsl(var(--muted-foreground))"
+                    fontSize={12}
+                    width={120}
+                  />
+                  <Tooltip 
+                    contentStyle={{
+                      backgroundColor: "hsl(var(--card))",
+                      border: "1px solid hsl(var(--border))",
+                      borderRadius: "var(--radius)",
+                      color: "hsl(var(--foreground))"
+                    }}
+                    formatter={(value: any, name: string) => [
+                      `${value}%`,
+                      name === "value" ? "Score" : name
+                    ]}
+                  />
+                  <Bar 
+                    dataKey="value" 
+                    fill="hsl(var(--primary))"
+                    radius={[0, 4, 4, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-[300px] flex flex-col items-center justify-center text-center space-y-4">
+                <Target className="h-16 w-16 text-muted-foreground/30" />
+                <div className="space-y-2">
+                  <h3 className="text-lg font-medium text-foreground">No data available</h3>
+                  <p className="text-sm text-muted-foreground max-w-md">
+                    Connect data source or update records to view contributing factors breakdown.
+                  </p>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
@@ -360,13 +374,13 @@ const PredictiveAnalytics = () => {
           </CardContent>
         </Card>
         
-        <Card className="shadow-card bg-gradient-card">
+        <Card className="shadow-card bg-gradient-card border-2 border-warning/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Average Score</p>
-                <p className="text-2xl font-bold text-warning">
-                  {Math.round(athletePredictiveData.reduce((sum, a) => sum + a.predictiveScore, 0) / athletePredictiveData.length)}
+                <p className="text-sm font-semibold text-muted-foreground">Medium Potential</p>
+                <p className="text-3xl font-black text-warning drop-shadow-sm">
+                  {athletePredictiveData.filter(a => a.tier === "Medium").length}
                 </p>
               </div>
               <Award className="h-8 w-8 text-warning" />

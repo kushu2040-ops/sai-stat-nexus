@@ -55,9 +55,9 @@ const areaChartData = [
 const PerformanceChart = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <Card className="shadow-card bg-gradient-card lg:col-span-2">
+        <Card className="shadow-card bg-gradient-card lg:col-span-2">
         <CardHeader>
-          <CardTitle className="text-foreground">Performance Trends</CardTitle>
+          <CardTitle className="text-foreground">Performance Analytics</CardTitle>
           <CardDescription>Monthly athlete performance scores and total athletes</CardDescription>
         </CardHeader>
         <CardContent>
@@ -71,14 +71,16 @@ const PerformanceChart = () => {
               />
               <YAxis 
                 yAxisId="left"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="hsl(var(--primary))"
                 fontSize={12}
+                label={{ value: 'Performance %', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: 'hsl(var(--primary))' } }}
               />
               <YAxis 
                 yAxisId="right"
                 orientation="right"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="hsl(var(--success))"
                 fontSize={12}
+                label={{ value: 'Total Athletes', angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: 'hsl(var(--success))' } }}
               />
               <Tooltip 
                 contentStyle={{
@@ -93,20 +95,20 @@ const PerformanceChart = () => {
                 type="monotone" 
                 dataKey="performance" 
                 stroke="hsl(var(--primary))" 
-                strokeWidth={3}
-                dot={{ fill: "hsl(var(--primary))", strokeWidth: 2, r: 4 }}
-                activeDot={{ r: 6, stroke: "hsl(var(--primary))", strokeWidth: 2 }}
-                name="Performance %"
+                strokeWidth={4}
+                dot={{ fill: "hsl(var(--primary))", strokeWidth: 3, r: 5 }}
+                activeDot={{ r: 8, stroke: "hsl(var(--primary))", strokeWidth: 3 }}
+                name="Performance % (Left Axis)"
               />
               <Line 
                 yAxisId="right"
                 type="monotone" 
                 dataKey="athletes" 
                 stroke="hsl(var(--success))" 
-                strokeWidth={2}
-                strokeDasharray="5 5"
-                dot={{ fill: "hsl(var(--success))", strokeWidth: 2, r: 3 }}
-                name="Total Athletes"
+                strokeWidth={3}
+                strokeDasharray="8 4"
+                dot={{ fill: "hsl(var(--success))", strokeWidth: 2, r: 4 }}
+                name="Total Athletes (Right Axis)"
               />
             </LineChart>
           </ResponsiveContainer>
@@ -125,11 +127,17 @@ const PerformanceChart = () => {
                 data={pieChartData}
                 cx="50%"
                 cy="50%"
-                labelLine={false}
-                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                outerRadius={80}
+                labelLine={true}
+                label={({ name, percent, value }) => {
+                  const percentage = Number((percent * 100).toFixed(0));
+                  // Only show label for segments > 3%
+                  return percentage > 3 ? `${name}: ${percentage}%` : '';
+                }}
+                outerRadius={90}
                 fill="#8884d8"
                 dataKey="value"
+                stroke="hsl(var(--background))"
+                strokeWidth={2}
               >
                 {pieChartData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
@@ -142,6 +150,10 @@ const PerformanceChart = () => {
                   borderRadius: "var(--radius)",
                   color: "hsl(var(--foreground))"
                 }}
+                formatter={(value, name) => [
+                  `${value.toLocaleString()} athletes`,
+                  name
+                ]}
               />
             </PieChart>
           </ResponsiveContainer>

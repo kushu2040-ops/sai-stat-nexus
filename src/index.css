@@ -42,10 +42,11 @@ All colors MUST be HSL.
     --destructive-foreground: 0 0% 98%;
 
     /* Chart accent colors from the image */
-    --chart-blue: 217 91% 60%; /* Primary blue */
-    --chart-orange: 35 91% 62%; /* Muted orange */
-    --chart-teal: 168 76% 42%; /* Teal */
-    --chart-red: 0 84% 60%; /* Red */
+    --chart-1: 217 91% 60%; /* Primary blue */
+    --chart-2: 35 91% 62%; /* Muted orange */
+    --chart-3: 168 76% 42%; /* Teal */
+    --chart-4: 0 84% 60%; /* Red */
+    --chart-5: 280 100% 70%; /* Purple */
 
     --border: 0 0% 90%; /* Light border */
     --input: 0 0% 96%; /* Light input background */
@@ -133,5 +134,26 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  /* Responsive chart container */
+  .recharts-responsive-container {
+    min-height: 200px;
+  }
+
+  /* Enhanced table styles */
+  .hover\\:bg-accent\\/10:hover {
+    background-color: hsl(var(--accent) / 0.1);
+  }
+
+  /* Improved accessibility and interactions */
+  @media (max-width: 768px) {
+    .recharts-text {
+      font-size: 10px !important;
+    }
+    
+    .recharts-cartesian-axis-tick-value {
+      font-size: 9px !important;
+    }
   }
 }

@@ -99,7 +99,7 @@ const Index = () => {
       case "performance":
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-foreground">Performance Analytics</h2>
+            <h2 className="text-3xl font-bold text-foreground">Performance Analytics</h2>
             <PerformanceChart />
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -131,7 +131,7 @@ const Index = () => {
       case "regional":
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-foreground">Regional Insights</h2>
+            <h2 className="text-3xl font-bold text-foreground">Regional Insights</h2>
             <RegionalInsights />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -156,7 +156,7 @@ const Index = () => {
       case "system":
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-foreground">System Performance</h2>
+            <h2 className="text-3xl font-bold text-foreground">System Performance</h2>
             <SystemMetrics />
           </div>
         );
@@ -164,7 +164,7 @@ const Index = () => {
       default:
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-foreground">{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h2>
+            <h2 className="text-3xl font-bold text-foreground">{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h2>
             <p className="text-muted-foreground">This section is under development.</p>
           </div>
         );

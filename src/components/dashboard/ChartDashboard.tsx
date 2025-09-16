@@ -62,14 +62,16 @@ const ChartDashboard = () => {
               />
               <YAxis 
                 yAxisId="left"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="hsl(var(--primary))"
                 fontSize={12}
+                label={{ value: 'Athletes Count', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: 'hsl(var(--primary))' } }}
               />
               <YAxis 
                 yAxisId="right"
                 orientation="right"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="hsl(var(--warning))"
                 fontSize={12}
+                label={{ value: 'Percentage (%)', angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: 'hsl(var(--warning))' } }}
               />
               <Tooltip 
                 contentStyle={{
@@ -101,19 +103,19 @@ const ChartDashboard = () => {
                 type="monotone"
                 dataKey="retention"
                 stroke="hsl(var(--warning))"
-                strokeWidth={3}
-                dot={{ fill: "hsl(var(--warning))", strokeWidth: 2, r: 4 }}
-                name="Retention %"
+                strokeWidth={4}
+                dot={{ fill: "hsl(var(--warning))", strokeWidth: 3, r: 5 }}
+                name="Retention % (Right Axis)"
               />
               <Line
                 yAxisId="right"
                 type="monotone"
                 dataKey="engagement"
                 stroke="hsl(var(--secondary))"
-                strokeWidth={2}
-                strokeDasharray="5 5"
-                dot={{ fill: "hsl(var(--secondary))", strokeWidth: 2, r: 3 }}
-                name="Engagement %"
+                strokeWidth={3}
+                strokeDasharray="8 4"
+                dot={{ fill: "hsl(var(--secondary))", strokeWidth: 2, r: 4 }}
+                name="Engagement % (Right Axis)"
               />
             </ComposedChart>
           </ResponsiveContainer>

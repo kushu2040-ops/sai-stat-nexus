@@ -19,11 +19,22 @@ interface SidebarProps {
   onSettingsClick: () => void;
 }
 
-const navigationItems = [
+interface NavigationItem {
+  id: string;
+  label: string;
+  icon: any;
+  badge?: string;
+  trend?: {
+    value: number;
+    isPositive: boolean;
+  };
+}
+
+const navigationItems: NavigationItem[] = [
   { id: "overview", label: "Overview", icon: Home },
-  { id: "athletes", label: "Athletes", icon: Users, badge: "15.8K" },
-  { id: "performance", label: "Performance", icon: Trophy },
-  { id: "talent", label: "Talent ID", icon: Target, badge: "2.3K" },
+  { id: "athletes", label: "Athletes", icon: Users, badge: "15.8K", trend: { value: 12.3, isPositive: true } },
+  { id: "performance", label: "Performance Analytics", icon: Trophy },
+  { id: "talent", label: "Talent ID", icon: Target, badge: "2.3K", trend: { value: 8.7, isPositive: true } },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
   { id: "regional", label: "Regional", icon: Map },
   { id: "engagement", label: "Engagement", icon: Activity },
@@ -62,12 +73,22 @@ const Sidebar = ({ activeSection, onSectionChange, onSettingsClick }: SidebarPro
               <item.icon className="h-4 w-4" />
               <span className="flex-1 text-left">{item.label}</span>
               {item.badge && (
-                <Badge 
-                  variant={activeSection === item.id ? "secondary" : "outline"} 
-                  className="text-xs"
-                >
-                  {item.badge}
-                </Badge>
+                <div className="flex items-center gap-2">
+                  <Badge 
+                    variant={activeSection === item.id ? "secondary" : "outline"} 
+                    className="text-xs"
+                  >
+                    {item.badge}
+                  </Badge>
+                  {item.trend && (
+                    <span className={cn(
+                      "text-xs font-medium",
+                      item.trend.isPositive ? "text-success" : "text-destructive"
+                    )}>
+                      {item.trend.isPositive ? "↗" : "↘"}{item.trend.value}%
+                    </span>
+                  )}
+                </div>
               )}
             </Button>
           ))}

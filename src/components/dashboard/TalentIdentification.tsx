@@ -118,14 +118,14 @@ const TalentIdentification = () => {
           </CardContent>
         </Card>
         
-        <Card className="shadow-card bg-gradient-card">
+        <Card className="shadow-card bg-gradient-card border-2 border-warning/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Medium Potential</p>
-                <p className="text-2xl font-bold text-secondary">{tierCounts.Medium}</p>
+                <p className="text-sm font-semibold text-muted-foreground">Medium Potential</p>
+                <p className="text-3xl font-black text-warning drop-shadow-sm">{tierCounts.Medium}</p>
               </div>
-              <Target className="h-8 w-8 text-secondary" />
+              <Target className="h-8 w-8 text-warning" />
             </div>
           </CardContent>
         </Card>
@@ -240,9 +240,9 @@ const TalentIdentification = () => {
                       {/* Header */}
                       <div className="flex items-start justify-between">
                         <div className="flex items-center gap-3">
-                          <Avatar className="h-12 w-12">
+                          <Avatar className="h-12 w-12 ring-2 ring-border">
                             <AvatarImage src="/placeholder.svg" alt={talent.name} />
-                            <AvatarFallback className="bg-primary/10 text-primary">
+                            <AvatarFallback className="bg-gradient-primary text-primary-foreground">
                               {talent.name.split(' ').map(n => n[0]).join('')}
                             </AvatarFallback>
                           </Avatar>
@@ -269,16 +269,21 @@ const TalentIdentification = () => {
                       </div>
 
                       {/* Potential Score */}
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <div className="flex items-center justify-between">
                           <span className="text-sm font-medium text-foreground">Potential Score</span>
                           <span className="text-xl font-bold text-primary">{talent.potentialScore}</span>
                         </div>
-                        <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                        <div className="w-full h-3 bg-muted rounded-full overflow-hidden shadow-inner">
                           <div 
-                            className="h-full bg-gradient-primary rounded-full transition-all duration-500" 
-                            style={{ width: `${talent.potentialScore}%` }}
+                            className="h-full bg-gradient-primary rounded-full transition-all duration-700 shadow-sm" 
+                            style={{ 
+                              width: `${Math.max((talent.potentialScore - 60) / 40 * 100, 5)}%` // Normalize to 60-100 range for better visual difference
+                            }}
                           />
+                        </div>
+                        <div className="text-xs text-muted-foreground text-right">
+                          {talent.potentialScore}/100
                         </div>
                       </div>
 

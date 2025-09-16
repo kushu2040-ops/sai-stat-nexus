@@ -238,7 +238,7 @@ const EngagementDashboard = () => {
                 </TableHeader>
                 <TableBody>
                   {popularTests.slice(0, 8).map((test, index) => (
-                    <TableRow key={test.id} className="hover:bg-muted/50">
+                    <TableRow key={test.id} className="hover:bg-accent/10 transition-colors cursor-pointer">
                       <TableCell className="font-medium">
                         <Badge variant={index < 3 ? "default" : "secondary"} className="w-8 h-8 rounded-full flex items-center justify-center">
                           {index + 1}
@@ -253,8 +253,12 @@ const EngagementDashboard = () => {
                       <TableCell className="text-right font-semibold text-primary">
                         {test.completions.toLocaleString()}
                       </TableCell>
-                      <TableCell className="text-right font-semibold text-success">
-                        {test.avgScore}%
+                      <TableCell className="text-right">
+                        <div className="bg-gradient-to-r from-success/20 to-success/30 px-3 py-1 rounded-full">
+                          <span className="text-base font-bold text-success">
+                            {test.avgScore}%
+                          </span>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
@@ -278,13 +282,16 @@ const EngagementDashboard = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis 
                   dataKey="week" 
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
+                  stroke="hsl(var(--foreground))"
+                  fontSize={13}
+                  fontWeight={500}
                 />
                 <YAxis 
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
+                  stroke="hsl(var(--foreground))"
+                  fontSize={13}
+                  fontWeight={500}
                   domain={[60, 100]}
+                  label={{ value: 'Retention %', angle: -90, position: 'insideLeft' }}
                 />
                 <Tooltip 
                   contentStyle={{
@@ -298,10 +305,10 @@ const EngagementDashboard = () => {
                 <Line 
                   type="monotone" 
                   dataKey="retentionRate" 
-                  stroke="hsl(var(--secondary))" 
-                  strokeWidth={3}
-                  dot={{ fill: "hsl(var(--secondary))", strokeWidth: 2, r: 4 }}
-                  activeDot={{ r: 6, stroke: "hsl(var(--secondary))", strokeWidth: 2, fill: "hsl(var(--background))" }}
+                  stroke="hsl(var(--primary))" 
+                  strokeWidth={4}
+                  dot={{ fill: "hsl(var(--primary))", strokeWidth: 3, r: 6 }}
+                  activeDot={{ r: 8, stroke: "hsl(var(--primary))", strokeWidth: 3, fill: "hsl(var(--background))" }}
                 />
               </LineChart>
             </ResponsiveContainer>

@@ -142,9 +142,6 @@ All colors MUST be HSL.
   }
 
   /* Enhanced table styles */
-  .hover\\:bg-accent\\/10:hover {
-    background-color: hsl(var(--accent) / 0.1);
-  }
 
   /* Improved accessibility and interactions */
   @media (max-width: 768px) {
